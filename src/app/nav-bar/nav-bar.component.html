@@ -1,0 +1,60 @@
+<mat-sidenav-container class="layout-container">
+
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav mode="side" (opened)="isSidenavOpen = true" (closed)="isSidenavOpen = false" closed>
+    <div class="side-nav">
+      <a href="#home">Home</a> 
+      <a href="#about">About</a> 
+      <a href="#contact">Contact</a> 
+      <a href="#query">Raise Query</a> 
+      <a routerLink="student/dashboard" *ngIf="isLoggedIn()">Dashboard</a>
+      <a routerLink="student/profile" *ngIf="isLoggedIn()">Profile</a>
+    </div>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <!-- Menu button -->
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!isSidenavOpen">menu</mat-icon>
+        <mat-icon *ngIf="isSidenavOpen">close</mat-icon>
+      </button>
+
+      <!-- Logo -->
+      <span class="logo">SMS</span>
+
+      <!-- Spacer pushes login/logout to right -->
+      <span class="spacer"></span>
+
+      <!-- Login/Logout links -->
+      <span>
+       <button mat-raised-button style="background-color: rgb(9, 135, 185);"><a mat-button routerLink="login" *ngIf="!isLoggedIn()">LOGIN</a></button> 
+        <button mat-raised-button color="warn"><a mat-button routerLink="/homePage" (click)="logout()" *ngIf="isLoggedIn()">LOGOUT</a></button>
+      </span>
+    </mat-toolbar>
+
+    <!-- Routed views -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<!-- <mat-toolbar class="my-toolbar">
+    <div class="logo">SMS</div> 
+    <div class="nav-items">
+        <span><a href="#home">Home</a></span>
+         <span><a href="#about">About</a></span>
+         <span><a href="#contact">Contact</a></span>
+    <span><a href="#query">Raise Query</a></span>
+      <span><a routerLink="student/dashboard" *ngIf="isLoggedIn()">Dashboard</a></span>
+      <span><a routerLink="student/profile" *ngIf="isLoggedIn()">Profile</a></span>
+      <span><a routerLink="login" *ngIf="!isLoggedIn()">LogIn</a></span>
+      <span><a routerLink="/homePage" (click)="logout()" *ngIf="isLoggedIn()">LogOut</a></span>
+ 
+    </div>
+  </mat-toolbar>
+
+
+    <router-outlet></router-outlet> -->

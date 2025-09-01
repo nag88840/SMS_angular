@@ -1,0 +1,37 @@
+.layout-container {
+  height: 100vh;
+  
+}
+
+.side-nav {
+  background-color: darkgrey;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  height: 95vh;   /* full screen height */
+}
+.side-nav a {
+  text-decoration: none;
+  margin: 8px 0;
+  color: #fff;
+  font-weight: 500;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  position: sticky;       /* toolbar sticks at the top */
+  top: 0;
+  z-index: 1000;          /* keep it above page content */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* raised effect */
+}
+
+mat-toolbar a {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 15px;
+  position: relative; /* reset from fixed */
+}
