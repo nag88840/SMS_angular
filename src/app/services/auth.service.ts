@@ -7,11 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   constructor(private http: HttpClient) { }
-  api = 'https://7b898b5659ea.ngrok-free.app/api/auth';
+  api = 'https://7b898b5659ea.ngrok-free.app/api';
 
   getlogincredentials(data:any):Observable<any>{
-    return this.http.post(`${this.api}/login`,data);
+    return this.http.post(`${this.api}/auth/login`,data);
   }
+
+  getloggeduser():Observable<any>{
+    return this.http.get(`${this.api}/viewuser`);
+  }
+
+  
 
 
 

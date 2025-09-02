@@ -17,6 +17,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+ 
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
     NavBarComponent,
     LoginComponent,
     HomePageComponent,
+    
     // HttpClientModule
   ],
   imports: [

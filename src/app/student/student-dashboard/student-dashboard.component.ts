@@ -12,5 +12,6 @@ export class StudentDashboardComponent implements OnInit {
   ngOnInit(): void {
     console.log("Student Dashboard Loaded");
   }
+  
 
 }
