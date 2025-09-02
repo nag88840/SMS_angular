@@ -9,7 +9,7 @@ import { AuthGuard } from '../jwt/auth.guard';
 // const routes: Routes = [];
 const routes: Routes = [
  
-  { path: 'dashboard', component: StudentDashboardComponent,canActivate:[AuthGuard]},
+  { path: 'dashboard', component: StudentDashboardComponent,},
   { path: 'profile', component: StudentProfileComponent },
  
 ];

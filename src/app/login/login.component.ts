@@ -13,6 +13,7 @@ import { Route, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  response:any[] = [];
   constructor(private fb: FormBuilder, private service: AuthService,private router: Router) { }
 
   ngOnInit(): void {
@@ -26,8 +27,19 @@ export class LoginComponent implements OnInit {
      this.service.getlogincredentials(this.loginForm.value).subscribe({
        next: (response) => {
         localStorage.setItem('token',response.token || response.accessToken);
-         console.log("RESPONSE",response);
-         console.log("TOKEN",response.token || response.accessToken);
+        //  localStorage.setItem('token',response.token || response.accessToken);
+        this.service.getloggeduser().subscribe({
+          next: (user) => {
+            console.log("USER", user);
+          },
+          error: (error) => {
+            console.error(error);
+          }
+        });
+        //  console.log("RESPONSE",response);
+        //  this.response = response.user;
+        //  console.log(this)
+        //  console.log("TOKEN",response.token || response.accessToken);
          this.router.navigate(['/student/dashboard']);
        },
        error: (error) => {
